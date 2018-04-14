@@ -1,0 +1,46 @@
+<ng-template #modal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Modal</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #addUpdateFrm="ngForm" (ngSubmit)="saveOrUpdate(addUpdateFrm.valid)">
+            <div class="form-group" [ngClass]="{'has-danger':title.invalid && isFormSubmited}">
+                <label>Title</label>
+                <input type="text" [(ngModel)]="bookModel.title" name="title" #title="ngModel" class="form-control"
+                       required>
+                <div *ngIf="title.invalid && isFormSubmited" class="invalid-feedback">
+                    Title is Required.
+                </div>
+            </div>
+            <div class="form-group" [ngClass]="{'has-danger':author.invalid && isFormSubmited}">
+                <label>Author</label>
+                <input type="text" #author="ngModel" [(ngModel)]="bookModel.author" name="author" class="form-control"
+                       required="">
+                <div *ngIf="title.invalid && isFormSubmited" class="invalid-feedback">
+                    Author name is Required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <div class="input-group">
+                    <input class="form-control"
+                           name="date"
+                           a2e-datetimepicker
+                           [(ngModel)]="bookModel.date"
+                           [options]="options"/>
+                    <span class="input-group-addon">
+    <span class="glyphicon glyphicon-calendar"></span>
+  </span>
+                </div>
+
+            </div>
+            <input type="submit" class="btn btn-primary" [ngClass]="mode=='edit'?'btn-warning':'btn-primary'"
+                   value="{{btnText}}"/>
+
+        </form>
+
+    </div>
+</ng-template>
