@@ -5,16 +5,16 @@ import {Observable} from "rxjs/Observable";
 
 import "rxjs/Rx";
 import {Subject} from "rxjs/Subject";
-import {Book} from "../models/Book";
+import {Movie} from "../models/Movie";
 import {Http, Response} from "@angular/http";
 
 
 @Injectable()
 export class GlobalService {
 
-    private bookSubject = new Subject<any>();
+    private movieSubject = new Subject<any>();
 
-    private books: Book[] = [
+    private movies: Movie[] = [
         {
             "id": 1,
             "author": "Dante Alighieri",
@@ -39,55 +39,55 @@ export class GlobalService {
 
     }
 
-    getBooks(): Observable<Book[]> {
+    getMovies(): Observable<Movie[]> {
 
-        return Observable.of(this.books);
+        return Observable.of(this.movies);
     }
 
-    addBook(book: Book) {
+    addMovie(movie: Movie) {
 
-        let founded = this.books.find((b: Book) => {
-            return b.title.toLowerCase() === book.title.toLowerCase();
+        let founded = this.movies.find((b: Movie) => {
+            return b.title.toLowerCase() === movie.title.toLowerCase();
         });
         if (founded) {
-            this.bookSubject.next({books: this.books,error:'Book with the same title already exist'});
+            this.movieSubject.next({movies: this.movies,error:'Movie with the same title already exist'});
             return;
         }
-        book.id = this.books[this.books.length - 1].id++;
-        this.books.push(book);
+        movie.id = this.movies[this.movies.length - 1].id++;
+        this.movies.push(movie);
 
 
-        this.bookSubject.next({books: this.books});
+        this.movieSubject.next({movies: this.movies});
     }
 
-    updateBook(book: Book) {
+    updateMovie(movie: Movie) {
 
 
-        let foundedBook = this.books.find((b) => {
-            return b.id == book.id;
+        let foundedBook = this.movies.find((b) => {
+            return b.id == movie.id;
         });
 
-        foundedBook.title = book.title;
-        foundedBook.author = book.author;
-        foundedBook.date = book.date;
+        foundedBook.title = movie.title;
+        foundedBook.author = movie.author;
+        foundedBook.date = movie.date;
 
-        this.bookSubject.next({books: this.books});
+        this.movieSubject.next({movies: this.movies});
     }
 
-    deleteBook(book: Book) {
+    deleteMovie(movie: Movie) {
 
-        let index = this.books.findIndex(x => x.id == book.id);
+        let index = this.movies.findIndex(x => x.id == movie.id);
 
         if (index > -1) {
-            this.books.splice(index, 1);
+            this.movies.splice(index, 1);
 
 
-            this.bookSubject.next({books: this.books});
+            this.movieSubject.next({movies: this.movies});
         }
     }
 
-    booksListOnUpdate(): Observable<Book[]> {
-        return this.bookSubject.asObservable();
+    moviesListOnUpdate(): Observable<Movie[]> {
+        return this.movieSubject.asObservable();
     }
 
     private handleError(error: Response) {
