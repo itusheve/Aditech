@@ -49,11 +49,13 @@ export class BooksComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.confirm.onClose.subscribe(result => {
+      let a = this.confirm.onClose.subscribe(result => {
+            console.log("confirm");
             if (result === true) {
                 this.service.deleteBook(this.bookToDelete);
             }
         });
+      console.log(a);
     }
 
     onEdit(book: Book) {
