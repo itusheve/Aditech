@@ -16,22 +16,22 @@ export class GlobalService {
 
     private movies: Movie[] = [
         {
-            "id": 1,
-            "author": "Dante Alighieri",
-            "title": "the Divine Comedy",
-            "date": new Date()
+            "movie_id": 1,
+            "name": "Dante Alighieri",
+            "descreption": "the Divine Comedy",
+            "image": new Image()
         },
         {
-            "id": 2,
-            "author": "Chinua Achebe",
-            "title": "Things Fall Apart ",
-            "date": new Date()
+            "movie_id": 2,
+            "name": "Chinua Achebe",
+            "descreption": "Things Fall Apart ",
+            "image": new Image()
         },
         {
-            "id": 3,
-            "author": "Hans Christian Andersen",
-            "title": '@@THIS is a BooK!!',
-            "date": new Date()
+            "movie_id": 3,
+            "name": "Hans Christian Andersen",
+            "descreption": '@@THIS is a BooK!!',
+            "image": new Image()
         }
     ];
 
@@ -47,13 +47,13 @@ export class GlobalService {
     addMovie(movie: Movie) {
 
         let founded = this.movies.find((b: Movie) => {
-            return b.title.toLowerCase() === movie.title.toLowerCase();
+            return b.name.toLowerCase() === movie.name.toLowerCase();
         });
         if (founded) {
             this.movieSubject.next({movies: this.movies,error:'Movie with the same title already exist'});
             return;
         }
-        movie.id = this.movies[this.movies.length - 1].id++;
+        movie.movie_id = this.movies[this.movies.length - 1].movie_id++;
         this.movies.push(movie);
 
 
@@ -63,20 +63,20 @@ export class GlobalService {
     updateMovie(movie: Movie) {
 
 
-        let foundedBook = this.movies.find((b) => {
-            return b.id == movie.id;
+        let foundedMovie = this.movies.find((b) => {
+            return b.movie_id == movie.movie_id;
         });
 
-        foundedBook.title = movie.title;
-        foundedBook.author = movie.author;
-        foundedBook.date = movie.date;
+        foundedMovie.name = movie.name;
+        foundedMovie.descreption = movie.descreption;
+        foundedMovie.image = movie.image;
 
         this.movieSubject.next({movies: this.movies});
     }
 
     deleteMovie(movie: Movie) {
 
-        let index = this.movies.findIndex(x => x.id == movie.id);
+        let index = this.movies.findIndex(x => x.movie_id == movie.movie_id);
 
         if (index > -1) {
             this.movies.splice(index, 1);

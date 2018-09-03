@@ -43,12 +43,12 @@ export class AddUpdateMovieComponent implements OnInit {
             this.mode = 'edit';
             this.btnText = 'Update';
 
-            this.movieModel.title = movie.title;
-            this.movieModel.author = movie.author;
+            this.movieModel.name = movie.name;
+            this.movieModel.descreption = movie.descreption;
 
 
-            this.movieModel.date = movie.date;
-            this.movieModel.id = movie.id;
+            this.movieModel.image = movie.image;
+            this.movieModel.movie_id = movie.movie_id;
 
         }
         this.modalRef = this.modalService.show(this.modal);

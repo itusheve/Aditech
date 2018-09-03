@@ -65,7 +65,7 @@ export class MoviesComponent implements OnInit, AfterViewInit {
 
     onDelete(movie: Movie) {
         this.movieToDelete = movie;
-        this.confirm.showConfirmationModal('Are you sure?', 'delete ' + movie.title + '?');
+        this.confirm.showConfirmationModal('Are you sure?', 'delete ' + movie.name + '?');
 
     }
 
