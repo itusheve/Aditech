@@ -1,15 +1,16 @@
 export class Movie {
-    id: number;
-    author: string;
-    title: string;
-    date: Date
+    movie_id: number;
+    name: string;
+    descreption: string;
+    image: object;
+
 
     static counter = 0;
 
-    constructor(_id: number, _author: string, _title: string, _date: Date) {
-        this.id = _id;
-        this.author = _author;
-        this.title = _title;
-        this.date = _date;
+    constructor(movie_id: number, _name: string, _descreption: string, _image: object) {
+        this.movie_id = movie_id;
+        this.name = _name;
+        this.descreption = _descreption;
+        this.image = _image;
     }
 }

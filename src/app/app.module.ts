@@ -5,7 +5,6 @@ import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from "@angular/router";
 
 import {AppComponent} from './app.component';
-import {NavbarComponent} from './cong add @angular/materialmponents/navbar/navbar.component';
 
 
 import {GlobalService} from "./services/global.service";
@@ -32,7 +31,6 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent,
         NotificationsComponent,
         MovieComponent,
         MoviesComponent,

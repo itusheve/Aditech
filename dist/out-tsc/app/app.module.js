@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './cong add @angular/materialmponents/navbar/navbar.component';
 import { GlobalService } from "./services/global.service";
 import { ModalModule } from "ngx-bootstrap";
 import { NotificationsComponent } from './components/notifications/notifications.component';
@@ -31,7 +30,6 @@ var AppModule = (function () {
         NgModule({
             declarations: [
                 AppComponent,
-                NavbarComponent,
                 NotificationsComponent,
                 MovieComponent,
                 MoviesComponent,
