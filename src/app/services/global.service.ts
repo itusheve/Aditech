@@ -18,19 +18,19 @@ export class GlobalService {
         {
             "movie_id": 1,
             "name": "Dante Alighieri",
-            "descreption": "the Divine Comedy",
+            "text": "the Divine Comedy",
             "image": new Image()
         },
         {
             "movie_id": 2,
             "name": "Chinua Achebe",
-            "descreption": "Things Fall Apart ",
+            "text": "Things Fall Apart ",
             "image": new Image()
         },
         {
             "movie_id": 3,
             "name": "Hans Christian Andersen",
-            "descreption": '@@THIS is a BooK!!',
+            "text": '@@THIS is a BooK!!',
             "image": new Image()
         }
     ];
@@ -68,7 +68,7 @@ export class GlobalService {
         });
 
         foundedMovie.name = movie.name;
-        foundedMovie.descreption = movie.descreption;
+        foundedMovie.text = movie.text;
         foundedMovie.image = movie.image;
 
         this.movieSubject.next({movies: this.movies});

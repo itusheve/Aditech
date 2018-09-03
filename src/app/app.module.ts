@@ -5,7 +5,7 @@ import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from "@angular/router";
 
 import {AppComponent} from './app.component';
-
+import {NavbarComponent} from './components/navbar/navbar.component';
 
 import {GlobalService} from "./services/global.service";
 import {ModalModule} from "ngx-bootstrap";
@@ -31,6 +31,7 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         AppComponent,
+        NavbarComponent,
         NotificationsComponent,
         MovieComponent,
         MoviesComponent,

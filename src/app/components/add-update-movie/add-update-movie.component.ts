@@ -31,7 +31,7 @@ export class AddUpdateMovieComponent implements OnInit {
     }
 
     reset() {
-        this.movieModel = new Movie(null, null, null, null);
+        this.movieModel = new Movie(null, null, null , null);
         this.mode = 'new';
         this.btnText = 'Save';
     }
@@ -44,7 +44,7 @@ export class AddUpdateMovieComponent implements OnInit {
             this.btnText = 'Update';
 
             this.movieModel.name = movie.name;
-            this.movieModel.descreption = movie.descreption;
+            this.movieModel.text = movie.text;
 
 
             this.movieModel.image = movie.image;

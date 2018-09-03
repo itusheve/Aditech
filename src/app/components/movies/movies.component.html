@@ -1,10 +1,10 @@
-<h2>Books</h2>
+<h2>Movies</h2>
 <button class="btn btn-primary" (click)="addUpdateModal.openModal()">Add</button>
 <app-notifications #notification [alertClass]="alertClass" [alertMessage]="alertMessage"
                    [alertType]="alertType"></app-notifications>
 
 <div class="row">
-    <movie (edit)="onEdit($event)" (delete)="onDelete($event)" *ngFor="let b of movies" [Movie]="b"></movie>
+    <movie (edit)="onEdit($event)" (delete)="onDelete($event)" *ngFor="let m of movies" [Movie]="m"></movie>
 </div>
-<app-add-update-book #addUpdateModal></app-add-update-book>
+<app-add-update-movie #addUpdateModal></app-add-update-movie>
 <app-confirmation-modal #confirm1></app-confirmation-modal>
