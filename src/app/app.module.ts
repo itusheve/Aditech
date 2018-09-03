@@ -7,6 +7,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './cong add @angular/materialmponents/navbar/navbar.component';
 
+
 import {GlobalService} from "./services/global.service";
 import {ModalModule} from "ngx-bootstrap";
 import * as $ from 'jquery';
